@@ -12,7 +12,6 @@ import Solutions from '../sections/Solutions'
 import Reviews from '../sections/Reviews'
 import Contact from '../sections/Contact'
 
-const heroAvif = images['fachada-principal'].avif
 const logoAvif = images.logo.avif
 
 export default function Home() {
@@ -43,13 +42,6 @@ export default function Home() {
           imageSrcSet={logoAvif.map((i) => `${i.src} ${i.w}w`).join(', ')}
           imageSizes="(min-width: 640px) 320px, 240px"
           fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          as="image"
-          type="image/avif"
-          imageSrcSet={heroAvif.map((i) => `${i.src} ${i.w}w`).join(', ')}
-          imageSizes="100vw"
         />
         {/* "$" escapado como \u0024: o gerador de HTML trata "$$" como padrão especial */}
         <script type="application/ld+json">{JSON.stringify(storeJsonLd()).replace(/\$/g, '\\u0024')}</script>

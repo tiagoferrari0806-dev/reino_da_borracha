@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
 import { track } from '@vercel/analytics'
 import Header from './Header'
@@ -7,29 +7,8 @@ import Footer from './Footer'
 import WhatsAppFloat from './WhatsAppFloat'
 
 export default function Layout() {
-  const { pathname } = useLocation()
-
-  // Animação de entrada: marca os elementos .reveal quando entram na tela
-  useEffect(() => {
-    const els = Array.from(document.querySelectorAll<HTMLElement>('.reveal:not(.is-visible)'))
-    if (!('IntersectionObserver' in window)) {
-      els.forEach((el) => el.classList.add('is-visible'))
-      return
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-visible')
-            io.unobserve(e.target)
-          }
-        }
-      },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
-    )
-    els.forEach((el) => io.observe(el))
-    return () => io.disconnect()
-  }, [pathname])
+  // A animação de entrada (.reveal) fica num script pequeno no index.html,
+  // para funcionar antes mesmo de o React carregar.
 
   // Métricas: qualquer link com data-track gera um evento no Vercel Analytics
   useEffect(() => {
