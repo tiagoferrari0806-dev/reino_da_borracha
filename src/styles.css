@@ -250,6 +250,15 @@
   }
 }
 
+/* Seções abaixo do hero: o navegador só monta o que está perto da tela
+   (bem mais leve no celular). "auto" memoriza a altura real depois de exibida.
+   Ao navegar por âncora, o index.html adiciona .cv-off para a rolagem ser exata. */
+html:not(.cv-off) main > section:not(:first-child),
+html:not(.cv-off) body > div > footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1100px;
+}
+
 /* Mapa com tom escuro azulado */
 .map-dark {
   filter: invert(0.9) hue-rotate(180deg) saturate(0.6) brightness(0.9) contrast(0.95);

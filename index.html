@@ -9,8 +9,33 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <script>
+      var root = document.documentElement
+      root.classList.add('js')
+
+      // Links para seções (#contato etc.): as seções fora da tela ficam "adormecidas"
+      // (content-visibility) para a página abrir rápido; antes de rolar até uma âncora,
+      // todas são montadas (.cv-off) para o destino ficar exatamente no lugar.
+      if (location.hash) root.classList.add('cv-off')
+      document.addEventListener(
+        'click',
+        function (e) {
+          var a = e.target.closest && e.target.closest('a[href*="#"]')
+          if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return
+          var u = new URL(a.href, location.href)
+          if (u.origin !== location.origin || u.pathname !== location.pathname || !u.hash) return
+          var t = document.getElementById(decodeURIComponent(u.hash.slice(1)))
+          if (!t) return
+          e.preventDefault()
+          root.classList.add('cv-off')
+          t.scrollIntoView()
+          if (location.hash !== u.hash) history.pushState(null, '', u.hash)
+          if (!t.hasAttribute('tabindex')) t.setAttribute('tabindex', '-1')
+          t.focus({ preventScroll: true })
+        },
+        true,
+      )
+
       // Animação de entrada ao rolar (fade + leve subida). Não depende do React.
-      document.documentElement.classList.add('js')
       addEventListener('DOMContentLoaded', function () {
         var els = document.querySelectorAll('.reveal')
         if (!('IntersectionObserver' in window)) {
