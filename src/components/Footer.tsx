@@ -29,7 +29,7 @@ export default function Footer() {
         <div className="mt-10 space-y-1.5 text-xs text-muted">
           <p>© 2026 {COMPANY.name}. Todos os direitos reservados.</p>
           <p className="tracking-wide">
-            {COMPANY.legalName} · CNPJ {COMPANY.cnpj}
+            {COMPANY.legalName} · <span className="whitespace-nowrap">CNPJ {COMPANY.cnpj}</span>
           </p>
         </div>
       </div>

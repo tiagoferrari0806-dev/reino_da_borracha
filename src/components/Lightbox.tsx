@@ -43,7 +43,7 @@ export default function Lightbox({ items, index, onChange }: Props) {
         if (e.key === 'ArrowRight') go(1)
         if (e.key === 'ArrowLeft') go(-1)
       }}
-      className="m-auto w-[min(92vw,720px)] max-w-none overflow-visible bg-transparent p-0 text-text"
+      className="m-auto w-[min(92vw,694px)] max-w-none overflow-visible bg-transparent p-0 text-text"
     >
       {item && (
         <figure className="relative">

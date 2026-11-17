@@ -55,7 +55,7 @@ export default function Solutions() {
               <h3 className="mt-3 font-serif text-3xl text-cream">{p.name}</h3>
               <p className="mt-2 text-sm text-muted">{p.audience}</p>
               <div aria-hidden="true" className="mx-auto my-6 h-px w-16 bg-line" />
-              <ul className="space-y-3.5 text-left text-[0.95rem]">
+              <ul className="flex-1 space-y-3.5 text-left text-[0.95rem]">
                 {p.items.map((it) => (
                   <li key={it} className="flex items-center gap-3">
                     <span className="diamond" aria-hidden="true" />
@@ -69,7 +69,7 @@ export default function Solutions() {
                 rel="noopener"
                 data-track="WhatsApp"
                 data-track-label={`perfil ${p.tag}`}
-                className={`btn mt-8 w-full md:mt-auto ${p.featured ? 'btn-primary' : 'btn-secondary'}`}
+                className={`btn mt-8 w-full ${p.featured ? 'btn-primary' : 'btn-secondary'}`}
                 aria-label={`Consultar pelo WhatsApp – ${p.name} (${p.tag})`}
               >
                 <WhatsAppIcon className="h-4 w-4" />

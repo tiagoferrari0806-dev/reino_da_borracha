@@ -22,7 +22,7 @@ export default function Hero() {
           className="block h-full w-full"
           imgClassName="h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/80 to-ink" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,26,0.93)_0%,rgba(7,22,52,0.88)_45%,rgba(6,13,26,0.97)_85%,#060d1a_100%)]" />
         <div className="absolute inset-x-0 top-0 h-56 bg-[radial-gradient(ellipse_at_top,rgba(223,59,57,0.22),transparent_70%)]" />
         <div className="absolute inset-x-0 bottom-0 h-72 bg-[radial-gradient(ellipse_at_bottom,rgba(59,111,216,0.28),transparent_70%)]" />
       </div>
@@ -36,7 +36,7 @@ export default function Hero() {
         <div className="relative">
           <div
             aria-hidden="true"
-            className="absolute inset-0 -z-10 scale-125 rounded-full bg-brand-light/30 blur-3xl"
+            className="absolute -inset-16 -z-10 bg-[radial-gradient(closest-side,rgba(59,111,216,0.45),transparent)]"
           />
           <Picture
             name="logo"
@@ -44,7 +44,7 @@ export default function Hero() {
             eager
             sizes="(min-width: 640px) 320px, 240px"
             displayWidth={320}
-            imgClassName="h-auto w-[240px] drop-shadow-[0_12px_40px_rgba(59,111,216,0.45)] sm:w-[320px]"
+            imgClassName="h-auto w-[240px] drop-shadow-[0_12px_32px_rgba(59,111,216,0.45)] sm:w-[320px]"
           />
         </div>
 
