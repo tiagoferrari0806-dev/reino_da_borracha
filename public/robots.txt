@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reinodaborracha.com.br/sitemap.xml
